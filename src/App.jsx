@@ -1,9 +1,11 @@
-import React from 'react'
+import RouteConfig from "./router/RouteConfig";
 
 function App() {
   return (
-    <div>App</div>
-  )
+    <div>
+      <RouteConfig />
+    </div>
+  );
 }
 
-export default App
+export default App;
