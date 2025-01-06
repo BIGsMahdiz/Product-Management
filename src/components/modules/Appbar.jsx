@@ -1,9 +1,8 @@
 import { Avatar, Box, Grid2, Typography } from "@mui/material";
 
-function Appbar() {
+function Appbar({ search, setSearch }) {
   return (
     <div>
-      {" "}
       <Grid2 container spacing={0}>
         <Grid2
           size={{ xs: 12, sm: 7, md: 7, lg: 10 }}
@@ -11,6 +10,8 @@ function Appbar() {
         >
           <input
             type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             style={{
               width: "100%",
               height: "57px",

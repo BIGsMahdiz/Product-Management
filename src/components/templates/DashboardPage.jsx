@@ -6,7 +6,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/services/queries";
 import { useEffect, useState } from "react";
 import AddItemModal from "../modules/AddItemModal";
-import DeleteItemModal from "../modules/DeleteItemModal";
 
 function DashboardPage() {
   const { data, isLoading } = useQuery({
@@ -15,20 +14,30 @@ function DashboardPage() {
   });
 
   const [displayed, setDisplayed] = useState();
+  const [search, setSearch] = useState("");
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  
-
   useEffect(() => {
     setDisplayed(data?.data.data);
   }, [data]);
 
+  // useEffect(() => {
+  //   if (search.length > 1) {
+  //     const newData = displayed?.filter((item) => item.name.includes(search));
+  //     setDisplayed(newData);
+  //   } else {
+  //     setDisplayed(data);
+  //   }
+  // }, [search]);
+
+  if (!displayed || !data) return <h3>Laoding...</h3>;
+
   return (
     <Container maxWidth="xl" sx={{ mt: 3 }}>
-      <Appbar />
+      <Appbar search={search} setSearch={setSearch} />
       <Box
         component="div"
         mt={10}

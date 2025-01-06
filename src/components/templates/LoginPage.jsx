@@ -7,7 +7,7 @@ import * as yup from "yup";
 import { inputLogin } from "@/constants/inputs";
 import { useMutation } from "@tanstack/react-query";
 import { useLogin } from "@/services/mutations";
-import { setCookie } from "@/utils/Cookie";
+import { setCookie } from "@/utils/cookie";
 
 const schema = yup.object({
   userName: yup.string().required("نام کاربری اجباری است"),

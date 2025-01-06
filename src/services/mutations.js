@@ -10,4 +10,9 @@ const addProducts = (data) => api.post("/products", data);
 
 const deleteProducts = (id) => api.delete(`/products/${id}`);
 
-export { useRegister, useLogin, addProducts, deleteProducts };
+const editProducts = (id, data) => {
+  delete data.id;
+  return api.put(`/products/${id}`, data);
+};
+
+export { useRegister, useLogin, addProducts, deleteProducts, editProducts };
