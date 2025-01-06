@@ -2,9 +2,41 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #f7f8f8 !important;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.registerFormCs input {
+  width: 400px;
+  height: 53px;
+  border-radius: 15px;
+  background-color: #f2f2f2;
+  border: 0;
+  outline: none;
+  margin: 10px 0;
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+.registerFormCs input::placeholder {
+  font-size: 1rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.registerFormCs button {
+  width: 400px;
+  height: 53px;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #55a3f0;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #fff;
+  border: none;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  cursor: pointer;
 }

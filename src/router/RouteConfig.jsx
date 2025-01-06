@@ -11,7 +11,7 @@ function RouteConfig() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashbaord" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
