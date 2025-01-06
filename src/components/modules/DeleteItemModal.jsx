@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addProducts, deleteProducts } from "@/services/mutations";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const styleOfModal = {
   position: "absolute",
@@ -33,6 +34,9 @@ export default function DeleteItemModal({ open, handleClose, id, setId }) {
   });
 
   const deleteProductHandler = () => {
+    toast(`این محصول با موفقیت حذف شد!`, {
+      icon: "🗑️",
+    });
     mutate(id, {
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: ["get-products"] });
@@ -44,6 +48,7 @@ export default function DeleteItemModal({ open, handleClose, id, setId }) {
 
   return (
     <div>
+      <Toaster />
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

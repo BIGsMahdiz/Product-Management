@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { editProducts } from "@/services/mutations";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const styleOfModal = {
   position: "absolute",
@@ -71,6 +72,7 @@ export default function EditItemModal({
 
   const editProductHandler = () => {
     setProductsInfo((prev) => ({ ...prev, id: editStage.id }));
+    toast.success(`محصول ${productsInfo.name} با موفقیت تغییر یافت!`);
     mutate(productsInfo, {
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: ["get-products"] });

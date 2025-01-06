@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addProducts } from "@/services/mutations";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const styleOfModal = {
   position: "absolute",
@@ -59,6 +60,7 @@ export default function AddItemModal({ open, handleClose }) {
   };
 
   const addProductHandler = () => {
+    toast.success(`محصول ${productsInfo.name} با موفقیت اضافه شد!`);
     mutate(productsInfo, {
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: ["get-products"] });
@@ -76,6 +78,7 @@ export default function AddItemModal({ open, handleClose }) {
 
   return (
     <div>
+      <Toaster />
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
