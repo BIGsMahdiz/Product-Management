@@ -24,14 +24,16 @@ function DashboardPage() {
     setDisplayed(data?.data.data);
   }, [data]);
 
-  // useEffect(() => {
-  //   if (search.length > 1) {
-  //     const newData = displayed?.filter((item) => item.name.includes(search));
-  //     setDisplayed(newData);
-  //   } else {
-  //     setDisplayed(data);
-  //   }
-  // }, [search]);
+  useEffect(() => {
+    if (search.length > 0) {
+      const newData = data?.data.data.filter((item) =>
+        item.name.includes(search)
+      );
+      setDisplayed(newData);
+    } else {
+      setDisplayed(data?.data.data);
+    }
+  }, [search]);
 
   if (!displayed || !data) return <h3>Laoding...</h3>;
 
